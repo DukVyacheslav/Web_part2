@@ -19,19 +19,26 @@
     </header>
     <main>
         <h2>Фотоальбом</h2>
-        <table>
-            <tr>
-                <?php foreach (Photo::$photos as $photo): ?>
-                    <td>
-                        <img src="/myproject/public/images/<?php echo $photo['file']; ?>" alt="<?php echo $photo['caption']; ?>" width="200">
-                        <p><?php echo $photo['caption']; ?></p>
-                    </td>
-                <?php endforeach; ?>
-            </tr>
-        </table>
+        <div class="gallery">
+            <?php for ($i = 1; $i <= 15; $i++): ?>
+                <div class="gallery-item">
+                    <img src="/myproject/public/images/photo1.jpg" alt="Фото <?php echo $i; ?>" class="thumbnail">
+                </div>
+            <?php endfor; ?>
+        </div>
+
+        <!-- Лайтбокс -->
+        <div class="lightbox" id="lightbox">
+            <span class="close" id="close">&times;</span>
+            <img class="lightbox-image" id="lightbox-image" src="" alt="Увеличенное фото">
+            <a class="prev" id="prev">&#10094;</a>
+            <a class="next" id="next">&#10095;</a>
+        </div>
     </main>
     <footer>
         <p>© 2025 Мой сайт</p>
     </footer>
+
+    <script src="/myproject/public/js/lightbox.js"></script>
 </body>
 </html>

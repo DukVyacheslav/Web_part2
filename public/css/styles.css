@@ -3,9 +3,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    min-height: 100vh; /* Минимальная высота = высота экрана */
-    display: flex; /* Включаем flexbox */
-    flex-direction: column; /* Элементы выстраиваются вертикально */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -35,7 +35,7 @@ main {
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
-    flex: 1; /* Main растягивается, занимая всё доступное пространство */
+    flex: 1;
 }
 
 table {
@@ -109,7 +109,6 @@ footer {
     text-align: center;
     padding: 10px;
     width: 100%;
-    /* Оставляем без position: fixed, футер будет внизу благодаря flex */
 }
 
 .category {
@@ -124,5 +123,88 @@ footer {
 }
 
 .description {
-    font-weight: normal; /* Описания не жирные */
+    font-weight: normal;
+}
+
+/* Стили для галереи */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 колонок */
+    gap: 10px; /* Отступы между фото */
+    margin: 20px 0;
+}
+
+.gallery-item {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Делаем фото квадратными */
+    overflow: hidden;
+}
+
+.thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Фото заполняет контейнер, сохраняя пропорции */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.thumbnail:hover {
+    transform: scale(1.05); /* Лёгкое увеличение при наведении */
+}
+
+/* Стили для лайтбокса */
+.lightbox {
+    display: none; /* Скрыт по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox-image {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #ccc;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.5);
 }
