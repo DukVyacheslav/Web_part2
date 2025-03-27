@@ -1,13 +1,9 @@
 <?php
 class Photo {
-    // Данные храним в константе, как требует задание
-    const PHOTOS = [
-        ['file' => 'nature.jpg', 'caption' => 'Красивый закат'],
-        ['file' => 'city.jpg', 'caption' => 'Ночной город']
+    public static $photos = [
+        ['file' => 'photo1.jpg', 'caption' => 'Первое фото'],
+        ['file' => 'photo2.jpg', 'caption' => 'Второе фото'],
+        ['file' => 'photo3.jpg', 'caption' => 'Третье фото']
     ];
-
-    public static function getAll() {
-        return self::PHOTOS;
-    }
 }
 ?>
